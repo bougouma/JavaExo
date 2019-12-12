@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Main {
-    public static  void GetFileContent(Map<String, Integer> map) {
+    public static  void getFileContent(Map<String, Integer> map) {
         String filePath = "notes.txt";
         String line;
         File f = new File(filePath);
@@ -39,19 +39,22 @@ public class Main {
             }
         }
     }
-    public static void GetAverage(Map<String, Integer> map)
+    public static void getAverage(Map<String, Integer> map)
     {
+        double average;
         System.out.println("--average");
         ArrayList <Integer> listStudent = new ArrayList <Integer> (map.values());
         double total = 0;
         for (Integer note : listStudent) {
             total += note;
         }
-        double average = total / listStudent.size();
-        System.out.println("average :" + average);
+        if(listStudent.size() !=0) {
+            average = total / listStudent.size();
+            System.out.println("average :" + average);
+        }
 
     }
-    public static void GetPoint(Map<String, Integer> map, String name)
+    public static void getPoint(Map<String, Integer> map, String name)
     {
         System.out.println("---Notes of " + name +"---");
         if(map.containsKey(name)) System.out.println("Nom : " +name + " - note :" + map.get(name));
@@ -61,9 +64,9 @@ public class Main {
     public static void main(String[] args) {
         Instant start = Instant.now() ;
         HashMap<String, Integer> map = new HashMap<>();
-        GetFileContent(map);
-        GetPoint(map, "Sarah");
-        GetAverage(map);
+        getFileContent(map);
+        getPoint(map, "Sarah");
+        getAverage(map);
         map.clear();
         Duration duration = Duration.between(start, Instant.now()) ;
         //long milis = ChronoUnit.MILLIS.between(start, Instant.now());

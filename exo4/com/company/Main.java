@@ -54,7 +54,7 @@ public class Main {
         System.out.println(Arrays.toString(newValue));
     }
 
-    public static void VerifAnag(String chain, String value) {
+    public static void verifAnag(String chain, String value) {
         System.out.println("--ANAGRAMME--");
         char[] arrayC = chain.toCharArray();
         char[] arrayV = value.toCharArray();
@@ -79,7 +79,7 @@ public class Main {
         }
 
     }
-    public static void SuppValue(String chain, String value) {
+    public static void suppValue(String chain, String value) {
         System.out.println("--DELETE--");
         System.out.println(" Delete : " + value  + " in  " + chain);
         String newString = chain.replaceAll(value, "");
@@ -100,10 +100,10 @@ public class Main {
         if (args[2] != null && args[3] != null) {
             switch (args[2]) {
                 case "/a":
-                    VerifAnag(args[1], args[3]);
+                    verifAnag(args[1], args[3]);
                     break;
                 case "/o":
-                    SuppValue(args[1], args[3]);
+                    suppValue(args[1], args[3]);
                     break;
                 default:
                     throw new IllegalStateException("Bad option");
